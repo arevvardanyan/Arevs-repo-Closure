@@ -41,3 +41,34 @@ const privateVariable = function(num){
 // console.log(secretValue.get());
 
 
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+3
+const createCachingFunction = function(){
+    let cache  = [];
+    console.log(cache)
+    return function(num){
+
+        let multi = num * 2;
+
+            if(cache.length === 0){
+                cache.push(num)
+                return `${multi} (calculated)`
+            }else{
+                for(let i = 0; i< cache.length; i++){
+                    if(!(cache.includes(num))){
+                        cache.push(num)
+                        return `${multi} (calculated)`
+                    }else{
+                        cache.push(num)
+                        return `${multi} (cached)`
+                    }
+            
+    
+                }
+            }
+         
+    }
+     
+}
+
+
