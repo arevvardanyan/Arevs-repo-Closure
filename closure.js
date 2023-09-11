@@ -1,32 +1,38 @@
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-3
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// 4
 
-const createCachingFunction = function(){
-    let obj = {}
-    return function(num){
-        let multi = num * 2
-        if(obj.length === 0){
-            obj[num] = num
-            return `${multi} (calculated)`
-        }else{
-            if(num in obj){
-                return `${multi} (cached)`
-            }else{
-                
-                obj[num] = num
-                return `${multi} (calculated)`
-            }
-            
-        }
+const createPerson = function(name,age){
+    let nameSet = name;
+    let ageSet = age
+    const getName = function(){
+        return nameSet
+    }
+    const getAge = function(){
+        return ageSet
+    }
+    const setName = function(name){
+        nameSet = name
+        return nameSet
+    }
+    const setAge = function(age){
+        ageSet = age
+        return ageSet
+    }
 
+    return {
+        getName,
+        getAge,
+        setName,
+        setAge
     }
 }
 
-
-const cachedCalculation = createCachingFunction(); 
-// console.log(cachedCalculation(5)); // Output: 10 (calculated)
-// console.log(cachedCalculation(6));
-// console.log(cachedCalculation(5));
-
+// const person = createPerson("Alice", 30); 
+// console.log(person.getName()); // Output: "Alice"
+// console.log(person.getAge()); // Output: 30 
+// person.setName("Bob"); 
+// person.setAge(25); 
+// console.log(person.getName()); // Output: "Bob"
+// console.log(person.getAge());
 
 
