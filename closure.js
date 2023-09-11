@@ -1,38 +1,16 @@
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// 4
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// 5
 
-const createPerson = function(name,age){
-    let nameSet = name;
-    let ageSet = age
-    const getName = function(){
-        return nameSet
-    }
-    const getAge = function(){
-        return ageSet
-    }
-    const setName = function(name){
-        nameSet = name
-        return nameSet
-    }
-    const setAge = function(age){
-        ageSet = age
-        return ageSet
-    }
 
-    return {
-        getName,
-        getAge,
-        setName,
-        setAge
+function add(a = 0, b = 0, c = 0) { 
+    return a + b + c; 
+} 
+function partial(foo,num){
+    return function(a,b){
+        return foo(num,a,b) 
     }
 }
-
-// const person = createPerson("Alice", 30); 
-// console.log(person.getName()); // Output: "Alice"
-// console.log(person.getAge()); // Output: 30 
-// person.setName("Bob"); 
-// person.setAge(25); 
-// console.log(person.getName()); // Output: "Bob"
-// console.log(person.getAge());
+const add5 = partial(add,5);
+console.log(add5(10,20))
 
 
